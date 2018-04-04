@@ -6,41 +6,42 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 13:51:36 by anaroste          #+#    #+#             */
-/*   Updated: 2018/03/12 10:52:38 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/04 14:07:13 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/checker.h"
+#include "../header/push_swap.h"
 
-t_pile			*ft_listnew(int nbr)
+void			ft_listnew(int nbr, t_top *t)
+{
+	if (!(t->a = malloc(sizeof(t_pile))))
+		return ;
+	t->a->nbr = nbr;
+	t->a->next = NULL;
+}
+
+void			ft_listadd(int nbr, t_top *t)
 {
 	t_pile		*pile;
 
 	if (!(pile = malloc(sizeof(*pile))))
-		return (NULL);
+		return ;
 	pile->nbr = nbr;
-	pile->next = NULL;
-	return (pile);
+	pile->next = t->a;
+	t->a = pile;
 }
 
-t_pile			*ft_listadd(int nbr, t_pile *top)
+void			ft_listcreate(int nbr, t_top *t)
 {
-	t_pile		*pile;
-
-	if (!(pile = malloc(sizeof(*pile))))
-		return (NULL);
-	pile->nbr = nbr;
-	pile->next = top;
-	return (pile);
-}
-
-t_pile			*ft_listcreate(int nbr, t_pile *top_a, int mq)
-{
-	if (mq == 0)
-		top_a = ft_listnew(nbr);
+	if (t->mq == 0)
+	{
+		ft_listnew(nbr, t);
+		t->mq = 1;
+	}
 	else
-		top_a = ft_listadd(nbr, top_a);
-	return (top_a);
+	{
+		ft_listadd(nbr, t);
+	}
 }
 
 int				ft_listlen(t_pile *top)
