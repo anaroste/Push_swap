@@ -6,13 +6,13 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/11 13:51:36 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/04 14:07:13 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:46:30 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void			ft_listnew(int nbr, t_top *t)
+void			ft_listnew(long long nbr, t_top *t)
 {
 	if (!(t->a = malloc(sizeof(t_pile))))
 		return ;
@@ -20,7 +20,7 @@ void			ft_listnew(int nbr, t_top *t)
 	t->a->next = NULL;
 }
 
-void			ft_listadd(int nbr, t_top *t)
+void			ft_listadd(long long nbr, t_top *t)
 {
 	t_pile		*pile;
 
@@ -31,7 +31,7 @@ void			ft_listadd(int nbr, t_top *t)
 	t->a = pile;
 }
 
-void			ft_listcreate(int nbr, t_top *t)
+void			ft_listcreate(long long nbr, t_top *t)
 {
 	if (t->mq == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 10:03:43 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/04 13:53:05 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:56:47 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,34 @@
 # include "../libft/libft.h"
 
 /**
-***				STRUCTURE
+***				STRUCTURES
 **/
+
+typedef struct		s_stock
+{
+	int				nbr_a;
+	int				l_a;
+	int				r_a;
+	int				nbr_b;
+	int				l_b;
+	int				r_b;
+}					t_stock;
 
 typedef struct		s_pile
 {
-	int				nbr;
+	long long		nbr;
 	int				r_pst;
 	int				l_pst;
 	struct s_pile	*next;
 }					t_pile;
+
+typedef struct		s_fit
+{
+	t_pile			*tmp;
+	int				nbr;
+	int				fit;
+	int				test;
+}					t_fit;
 
 typedef struct		s_top
 {
@@ -37,23 +55,32 @@ typedef struct		s_top
 ***				PROTOTYPES
 **/
 
-void				ft_sa(t_top *t);
-void				ft_sb(t_top *t);
-void				ft_ss(t_top *t);
-void				ft_pa(t_top *t);
-void				ft_pb(t_top *t);
-void				ft_ra(t_top *t);
-void				ft_rb(t_top *t);
-void				ft_rr(t_top *t);
-void				ft_rra(t_top *t);
-void				ft_rrb(t_top *t);
-void				ft_rrr(t_top *t);
+void				ft_sa(t_top *t, int scro);
+void				ft_sb(t_top *t, int scro);
+void				ft_ss(t_top *t, int scro);
+void				ft_pa(t_top *t, int scro);
+void				ft_pb(t_top *t, int scro);
+void				ft_ra(t_top *t, int scro);
+void				ft_rb(t_top *t, int scro);
+void				ft_rr(t_top *t, int scro);
+void				ft_rra(t_top *t, int scro);
+void				ft_rrb(t_top *t, int scro);
+void				ft_rrr(t_top *t, int scro);
 
-void				ft_listnew(int nbr, t_top *t);
-void				ft_listadd(int nbr, t_top *t);
-void				ft_listcreate(int nbr, t_top *t);
+void				ft_listnew(long long nbr, t_top *t);
+void				ft_listadd(long long nbr, t_top *t);
+void				ft_listcreate(long long nbr, t_top *t);
 int					ft_listlen(t_pile *top);
 
 void				ft_resetpst(t_top *t);
+int					good_place(t_top *t, int nbr);
+int					best_fit(t_top *t);
+int					best_place(t_top *t, int nbr);
+void				push_swap(t_top *t, t_stock *s);
+int					bigger_one(t_top *t, int scro);
+void				ft_write(int act);
+int					check_int(t_top *t);
+int					check_error(int ac, char **av, int i, int j);
+int					check_doublon(t_top *t);
 
 #endif

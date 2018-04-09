@@ -6,13 +6,13 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 09:56:08 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/04 10:34:57 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/08 19:25:16 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	ft_sa(t_top *t)
+void	ft_sa(t_top *t, int scro)
 {
 	t_pile *tmp;
 
@@ -23,9 +23,11 @@ void	ft_sa(t_top *t)
 		tmp->next = t->a;
 		t->a = tmp;
 	}
+	ft_resetpst(t);
+	ft_write(scro);
 }
 
-void	ft_sb(t_top *t)
+void	ft_sb(t_top *t, int scro)
 {
 	t_pile *tmp;
 
@@ -36,10 +38,13 @@ void	ft_sb(t_top *t)
 		tmp->next = t->b;
 		t->b = tmp;
 	}
+	ft_resetpst(t);
+	ft_write(scro);
 }
 
-void	ft_ss(t_top *t)
+void	ft_ss(t_top *t, int scro)
 {
-	ft_sa(t);
-	ft_sb(t);
+	ft_sa(t, 0);
+	ft_sb(t, 0);
+	ft_write(scro);
 }
