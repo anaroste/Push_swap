@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 09:33:17 by anaroste          #+#    #+#             */
-/*   Updated: 2018/03/12 19:01:58 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/12 12:44:22 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ static int		ft_read(char ***tab)
 	return (0);
 }
 
+static void		ft_piledel(char **tab, t_pile *pile)
+{
+	free(tab);
+	free(pile->a);
+	free(pile->b);
+}
+
+static int		error_checker(int ac, char **av)
+{
+	int		i;
+
+	i = 1;
+	if (ac == 1)
+		return (1);
+	while (av[i])
+	{
+		if (ft_isint(av[i]) == 1)
+		{
+			write(1, "Error\n", 6);
+			return (1);
+		}
+	}
+}
+
 int				main(int ac, char **av)
 {
 	t_pile		pile;
@@ -43,6 +67,8 @@ int				main(int ac, char **av)
 	char		**tab;
 
 	i = 0;
+	if (error_checker(ac, av) == 1)
+		return (0);
 	if (!(pile.a = (int *)malloc(sizeof(int) * ac)))
 		return (0);
 	if (!(pile.b = (int *)malloc(sizeof(int) * ac)))
@@ -59,8 +85,6 @@ int				main(int ac, char **av)
 	i = 0;
 	while (tab[i])
 		free(tab[i++]);
-	free(tab);
-	free(pile.a);
-	free(pile.b);
+	ft_piledel(tab, &pile);
 	return (0);
 }
