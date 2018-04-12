@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 10:03:43 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/11 12:16:17 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/12 11:09:58 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int					ft_listlen(t_pile *top);
 int					ft_listgood(t_top *top);
 
 void				ft_resetpst(t_top *t);
-int					good_place(t_top *t, int nbr);
+int					good_place(t_top *t, int nbr, int ret);
 int					best_fit(t_top *t);
-int					best_place(t_top *t, int nbr);
+int					best_place(t_top *t, int nbr, int nb);
 void				push_swap(t_top *t, t_stock *s);
 int					bigger_one(t_top *t, int scro);
 void				ft_write(int act);
@@ -85,5 +85,7 @@ int					check_char(char *av);
 int					check_error(int ac, char **av, int i, int j);
 int					check_doublon(t_top *t);
 void				ft_little_pile(t_top *t);
+void				free_lst(t_top *t);
+void				free_tab(char **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 11:05:00 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/11 10:39:38 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/12 11:10:20 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ static void		comeback_baby(t_top *t)
 
 static int		create_pile(int ac, char **av, t_top *t, int i)
 {
+	if (ft_strchr(av[1], ' ') == NULL)
+		return (1);
 	if (ac == 2)
 	{
 		if (check_char(av[1]) == 1)
@@ -91,16 +93,14 @@ static int		create_pile(int ac, char **av, t_top *t, int i)
 			i++;
 		while (--i >= 0)
 			ft_listcreate(ft_atoll(av[i]), t);
+		free_tab(av);
 	}
 	else
 	{
 		if (check_error(ac, av, 0, 1) == 1)
 			return (1);
-		while (ac > 1)
-		{
+		while (ac-- > 1)
 			ft_listcreate(ft_atoll(av[ac - 1]), t);
-			ac--;
-		}
 	}
 	if (check_int(t) == 1 || check_doublon(t) == 1)
 		return (1);
@@ -127,10 +127,11 @@ int				main(int ac, char **av)
 	while (t.a)
 	{
 		s.nbr_a = best_fit(&t);
-		s.nbr_b = best_place(&t, s.nbr_a);
+		s.nbr_b = best_place(&t, s.nbr_a, 0);
 		check_move(&t, &s);
 		push_swap(&t, &s);
 	}
 	comeback_baby(&t);
+	free_lst(&t);
 	return (0);
 }

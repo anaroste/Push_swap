@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 10:37:21 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/11 18:33:50 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/04/12 11:01:52 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,30 @@ static int		listgood(t_top *t)
 	return (0);
 }
 
+static void		second(t_top *t, t_pile *tmp, int nbr)
+{
+	if (t->a->l_pst < t->a->r_pst)
+	{
+		nbr = t->a->l_pst;
+		t->a = tmp;
+		while (nbr > 0)
+		{
+			ft_ra(t, 6);
+			nbr--;
+		}
+	}
+	else
+	{
+		nbr = t->a->r_pst;
+		t->a = tmp;
+		while (nbr > 0)
+		{
+			ft_rra(t, 9);
+			nbr--;
+		}
+	}
+}
+
 void			ft_little_pile(t_top *t)
 {
 	t_pile		*tmp;
@@ -73,26 +97,7 @@ void			ft_little_pile(t_top *t)
 		nbr = smaller_one(t, 1);
 		while (t->a->nbr != nbr)
 			t->a = t->a->next;
-		if (t->a->l_pst < t->a->r_pst)
-		{
-			nbr = t->a->l_pst;
-			t->a = tmp;
-			while (nbr > 0)
-			{
-				ft_ra(t, 6);
-				nbr--;
-			}
-		}
-		else
-		{
-			nbr = t->a->r_pst;
-			t->a = tmp;
-			while (nbr > 0)
-			{
-				ft_rra(t, 9);
-				nbr--;
-			}
-		}
+		second(t, tmp, nbr);
 		ft_pb(t, 5);
 	}
 	while (t->b)

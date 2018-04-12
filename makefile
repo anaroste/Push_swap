@@ -6,7 +6,7 @@
 #    By: anaroste <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/09 18:51:37 by anaroste          #+#    #+#              #
-#    Updated: 2018/04/11 12:16:38 by anaroste         ###   ########.fr        #
+#    Updated: 2018/04/12 09:29:31 by anaroste         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_P = ft_s.c				\
 		ft_error.c			\
 		listgood.c			\
 		little_pile.c		\
+		ft_free.c			\
 
 ADD_C = $(addprefix file/, $(SRC_C))
 ADD_P = $(addprefix file/, $(SRC_P))
