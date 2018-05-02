@@ -5,44 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/10 09:26:29 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/09 19:12:50 by anaroste         ###   ########.fr       */
+/*   Created: 2018/04/18 16:45:50 by anaroste          #+#    #+#             */
+/*   Updated: 2018/04/18 16:55:13 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
+
+# include <fcntl.h>
+# include <unistd.h>
+
 # include "../libft/libft.h"
 
-/**
-***		STRUCTURE
-**/
+int			ft_isnumber(char *str);
+int			ft_is_valid_number(char *str, int *option);
+int			ft_init_pile_a(int **pile_a, int ac, char **av, int *option);
+int			ft_error(int mode, char *str);
+int			ft_success(int mode, char *str);
+int			ft_failure(int mode, char *str);
 
-typedef struct		s_pile
-{
-	int				*a;
-	int				*b;
-}					t_pile;
+void		ft_print_piles(int *pile_a, int *pile_b, char *str);
+void		ft_debug(int *a, int *b, char *str);
 
-/**
-***		PROTOTYPES
-**/
+int			ft_options(int **options, int ac, char **av);
+int			ft_verif_pile(int *pile, int *opt);
+int			ft_what_to_do(int **pile_a, int **pile_b, char *str);
 
-int					ft_sa(t_pile *pile);
-int					ft_sb(t_pile *pile);
-int					ft_ss(t_pile *pile);
-int					ft_pa(t_pile *pile);
-int					ft_pb(t_pile *pile);
-int					ft_ra(t_pile *pile);
-int					ft_rb(t_pile *pile);
-int					ft_rr(t_pile *pile);
-int					ft_rra(t_pile *pile);
-int					ft_rrb(t_pile *pile);
-int					ft_rrr(t_pile *pile);
-int					ft_check(char **tab, t_pile *pile);
-
-t_pile				*ft_listnew(int nbr);
-t_pile				*ft_listadd(int nbr, t_pile *top);
-t_pile				*ft_listcreate(int nbr, t_pile *top_a, int mq);
+int			ft_checker_swap(int **pile);
+int			ft_double_swap(int **a, int **b);
+int			ft_push(int **put_on, int **pick_one);
+int			ft_rotate(int **pile);
+int			ft_double_rotate(int **a, int **b);
+int			ft_reverse_rotate(int **pile);
+int			ft_double_reverse_rotate(int **a, int **b);
 
 #endif
