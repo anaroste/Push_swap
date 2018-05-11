@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 11:05:00 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/10 10:32:42 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/10 13:23:20 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static int		create_pile(int ac, char **av, t_top *t, int i)
 {
 	if (ac == 1)
 		return (1);
-	if (ft_strchr(av[1], ' ') == NULL)
+	if ((ft_isint(av[1]) == 0))
 		return (1);
 	if (ac == 2)
 	{

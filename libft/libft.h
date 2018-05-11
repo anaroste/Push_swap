@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 15:07:50 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/18 11:12:05 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/10 10:52:49 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-void				ft_add_nchar_after(char **string, int nb, char c);
+int					ft_add_nchar_after(char **string, int nb, char c);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *neew);

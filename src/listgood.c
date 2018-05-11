@@ -6,7 +6,7 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 18:01:20 by anaroste          #+#    #+#             */
-/*   Updated: 2018/04/19 10:14:17 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/11 14:55:40 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,11 @@ static void		ra_sa(t_top *t)
 
 static int		ft_good(t_top *t)
 {
-	t_pile		*tmp;
-	int			i;
 
 	if (ft_listlen(t->a) == 3)
 		ra_sa(t);
 	else
-	{
-		i = 0;
-		tmp = t->a;
-		while (t->a->next)
-		{
-			if (t->a->nbr < t->a->next->nbr)
-			{
-				t->a = tmp;
-				return (1);
-			}
-			i++;
-			t->a = t->a->next;
-		}
-		t->a = tmp;
-		while (i--)
-			ft_ra(t, 6);
-	}
+		return (1);
 	return (0);
 }
 

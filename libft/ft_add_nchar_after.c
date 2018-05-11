@@ -6,13 +6,13 @@
 /*   By: anaroste <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 13:46:13 by anaroste          #+#    #+#             */
-/*   Updated: 2018/05/10 10:42:03 by anaroste         ###   ########.fr       */
+/*   Updated: 2018/05/10 10:52:25 by anaroste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft.h"
 
-void			ft_add_nchar_after(char **string, int nb, char c)
+int			ft_add_nchar_after(char **string, int nb, char c)
 {
 	char	*str;
 	char	*tmp;
